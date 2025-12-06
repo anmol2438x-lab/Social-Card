@@ -1,0 +1,214 @@
+:root {
+    --bg: #f3f6ff;
+    --card-bg: #ffffff;
+    --muted: #6b7280;
+    --accent: linear-gradient(135deg, #7c3aed, #06b6d4);
+    --radius: 14px;
+    --shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+    --glass: rgba(255, 255, 255, 0.6);
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #eef2ff 0%, #fff 100%);
+    padding: 24px;
+    color: #111827;
+}
+
+/* Page container */
+.page {
+    width: 100%;
+    max-width: 980px;
+}
+
+/* Card layout */
+.card {
+    display: flex;
+    gap: 20px;
+    background: linear-gradient(rgb(252, 251, 251), rgb(0, 255, 255));
+    border: 2px solid black;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    padding: 22px;
+    align-items: stretch;
+}
+
+/* Left and right columns */
+.left {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.right {
+    width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.brand {
+    margin: 0;
+    font-size: 14px;
+    color: #374151;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+}
+
+/* Icons grid */
+.icons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.icon {
+    display: inline-flex;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease;
+    box-shadow: 0 4px 10px rgba(16, 24, 40, 0.06);
+}
+
+.icon:active {
+    transform: scale(.98)
+}
+
+.icon:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(16, 24, 40, 0.09);
+}
+
+/* each svg gets a fill via inline paths, keep them white on colored bg */
+.icon .svg-icon {
+    width: 26px;
+    height: 26px;
+    display: block;
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.06))
+}
+
+/* Color each platform's background with brand colors */
+.icon[data-key="Wedsite"] {
+    background: linear-gradient(180deg, #0a0a0a, #2c2e2c)
+}
+
+.icon[data-key="facebook"] {
+    background: linear-gradient(180deg, #4C69BA, #3B5998)
+}
+
+.icon[data-key="Instagram"] {
+    background: radial-gradient(circle at 30% 30%,
+            #040355 0%,
+            hsl(318, 98%, 50%) 5%,
+            hsl(0, 100%, 50%) 45%,
+            hsl(49, 91%, 50%) 60%,
+            #ec8e23 90%);
+}
+
+.icon[data-key="linkedin"] {
+    background: linear-gradient(180deg, #0A66C2, #074A9C)
+}
+
+.icon[data-key="github"] {
+    background: linear-gradient(180deg, #504e4e, #0f1724)
+}
+
+.icon[data-key="Telegram"] {
+    background: linear-gradient(#20a4dd);
+}
+
+/* Right column profile */
+.profile {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 100%
+}
+
+.profile-text {
+    flex: 1
+}
+
+.profile-text h2 {
+    margin: 0;
+    font-size: 20px
+}
+
+.profile-text .email {
+    display: inline-block;
+    color: #0f172a;
+    text-decoration: none;
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--muted)
+}
+
+.profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-size: cover;
+    display: flex;
+    overflow: hidden;
+}
+
+.student-svg {
+    width: 100%;
+    height: 100%
+}
+
+/* Responsive */
+@media (max-width:900px) {
+    .card {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .right {
+        width: 100%;
+        order: 2
+    }
+
+    .left {
+        order: 1
+    }
+
+    .profile-img {
+        width: 90px;
+        height: 90px
+    }
+}
+
+@media (max-width:420px) {
+    .icon {
+        width: 48px;
+        height: 48px
+    }
+
+    .right {
+        padding: 8px
+    }
+
+    .profile-img {
+        width: 78px;
+        height: 78px
+    }
+}
